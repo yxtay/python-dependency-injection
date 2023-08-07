@@ -4,8 +4,8 @@ from matplotlib_plot import Plot
 
 
 def test_draw(mocker):
-    plot_date_mock = mocker.patch("matplotlib.pyplot.plot_date")
-    show_mock = mocker.patch("matplotlib.pyplot.show")
+    plot_date_mock = mocker.patch("matplotlib_plot.matplotlib.pyplot.plot_date")
+    show_mock = mocker.patch("matplotlib_plot.matplotlib.pyplot.show")
 
     plot = Plot()
     hours = [datetime.datetime.now()]
