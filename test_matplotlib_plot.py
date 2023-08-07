@@ -1,16 +1,11 @@
 import datetime
-from unittest.mock import MagicMock
-
-import matplotlib.pyplot
 
 from matplotlib_plot import Plot
 
 
-def test_draw(monkeypatch):
-    plot_date_mock = MagicMock()
-    show_mock = MagicMock()
-    monkeypatch.setattr(matplotlib.pyplot, "plot_date", plot_date_mock)
-    monkeypatch.setattr(matplotlib.pyplot, "show", show_mock)
+def test_draw(mocker):
+    plot_date_mock = mocker.patch("matplotlib.pyplot.plot_date")
+    show_mock = mocker.patch("matplotlib.pyplot.show")
 
     plot = Plot()
     hours = [datetime.datetime.now()]

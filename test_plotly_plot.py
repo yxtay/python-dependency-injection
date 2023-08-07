@@ -1,16 +1,11 @@
 import datetime
-from unittest.mock import MagicMock
-
-import plotly.graph_objects
 
 from plotly_plot import Plot
 
 
-def test_draw(monkeypatch):
-    figure_mock = MagicMock()
-    monkeypatch.setattr(plotly.graph_objects, "Figure", figure_mock)
-    scatter_mock = MagicMock()
-    monkeypatch.setattr(plotly.graph_objects, "Scatter", scatter_mock)
+def test_draw(mocker):
+    figure_mock = mocker.patch("plotly.graph_objects.Figure")
+    scatter_mock = mocker.patch("plotly.graph_objects.Scatter")
 
     plot = Plot()
     hours = [datetime.datetime.now()]
