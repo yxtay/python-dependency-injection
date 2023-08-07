@@ -1,5 +1,5 @@
-import datetime
 import json
+from datetime import datetime
 
 
 class DataSource:
@@ -8,7 +8,7 @@ class DataSource:
         with open(kwargs["file_name"]) as file:
             json_data = json.load(file)["hourly"]
             for row in json_data:
-                hour = datetime.datetime.fromtimestamp(row["dt"]).isoformat()
+                hour = datetime.fromtimestamp(row["dt"]).isoformat()
                 temperature = float(row["temp"])
                 temperatures_by_hour[hour] = temperature
 

@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timezone
 
 from matplotlib_plot import Plot
 
@@ -8,7 +8,7 @@ def test_draw(mocker):
     show_mock = mocker.patch("matplotlib_plot.matplotlib.pyplot.show")
 
     plot = Plot()
-    hours = [datetime.datetime.now()]
+    hours = [datetime.now(tz=timezone.utc)]
     temperatures = [14.52]
     plot.draw(hours, temperatures)
 

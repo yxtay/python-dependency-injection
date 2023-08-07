@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timezone
 
 from plotly_plot import Plot
 
@@ -8,7 +8,7 @@ def test_draw(mocker):
     scatter_mock = mocker.patch("plotly_plot.plotly.graph_objects.Scatter")
 
     plot = Plot()
-    hours = [datetime.datetime.now()]
+    hours = [datetime.now(timezone.utc)]
     temperatures = [14.52]
     plot.draw(hours, temperatures)
 

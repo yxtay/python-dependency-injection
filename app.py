@@ -1,5 +1,5 @@
-import datetime
 import json
+from datetime import datetime
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent
@@ -29,7 +29,7 @@ class App:
         temperatures = []
 
         for date, temperature in temperatures_by_hour.items():
-            dates.append(datetime.datetime.fromisoformat(date))
+            dates.append(datetime.fromisoformat(date))
             temperatures.append(temperature)
 
         self.plot.draw(dates, temperatures)
